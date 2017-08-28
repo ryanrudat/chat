@@ -1,6 +1,7 @@
 <h1> Chat <h1>
-  <div ng-repeat="room in home.rooms"{{room.name}}>
+  <div ng-repeat="room in home.rooms track by $index">
+    Room {{$index + 1}}
 
 
 </div>
-<!--<ng-include src="'/templates/index.html'"></ng-include>-->
+<!--ng-include src="'/templates/index.html'"></ng-include-->

@@ -7,8 +7,8 @@
     Room.all = rooms;
 
     return Room;
-    }
   }
+
 
   angular
     .module('chat')
