@@ -11,12 +11,15 @@
                  url: '/',
                  controller: 'HomeCtrl as home',
                  templateUrl: '/templates/home.html',
-
-        });
-
+               })
+               .state('modal', {
+                 url:'/controllers',
+                 controller: 'ModalCtrl as modal',
+                 templateUrl: '/templates/modal.html'
+               });
     }
 
   angular
-    .module('chat', ['ui.router', 'firebase'])
+    .module('chat', ['ui.router', 'firebase', 'ui.bootstrap'])
     .config(config);
 })();

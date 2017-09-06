@@ -1,0 +1,32 @@
+
+<!--<div ng-controller="ModalCtrl as modal"> //I need to instantiate this as the controller>-->
+  <div class="modal-header">
+    <h2 class="modal-title">Create New Room</h2>
+
+  </div>
+  <form >
+    <h3 class="modal-form-header"><small>Enter a Room Name</small></h3>
+
+  <!-- <div class="modal-name-input">
+    <input type="text" ng-model="model.newRoomName" placeholder="Enter Name">
+  </div> -->
+
+  <div>
+
+    <input  type="text" ng-model="modal.newRoom" placeholder="Enter Room Name Here"/>
+
+    <p><button ng-click="modal.buttonSubmit()">Submit</button>
+    <button ng-click="modal.close()">Close</button></p>
+
+
+  </div>
+
+
+<!-- <div class="modal-button">
+    <button type="submit" ng-model="modal.Room">Add Room</button>
+    <button class="btn btn-warning" ng-click="modal.removeRoom()">Remove Room</button> type="button"
+    <button class="btn btn-danger" ng-click="modal.closemodal()">Cancel</button> type="button"
+
+  </div> -->
+  </form>
+</div>
