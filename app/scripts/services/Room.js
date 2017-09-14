@@ -1,13 +1,17 @@
 (function() {
   function Room($firebaseArray) {
+
     var Room = {};
+    // creates reference to rooms database
     var ref = firebase.database().ref().child("rooms");
+    // rooms use $firebaseArray service to make ref an array
     var rooms = $firebaseArray(ref);
 
+    // append rooms to the Room object as Room.all
     Room.all = rooms;
 
     Room.add = function(room) {
-      //Use the firebase method $add here
+      // use the firebase method $add here
       rooms.$add(room);
     }
 
@@ -17,6 +21,7 @@
 
     return Room;
   }
+
 
 
   angular

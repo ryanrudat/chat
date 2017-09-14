@@ -1,9 +1,12 @@
 (function(){
-  function HomeCtrl(Room, $uibModal) {
+  function HomeCtrl(Room, Message, $uibModal) {
+    var home = this;
 
-    this.rooms = Room.all;
+    home.rooms = Room.all;
+    home.currentRoom = null;
+    home.messages = null;
 
-    this.open = function() {
+    home.open = function() {
       var modalInstance = $uibModal.open({
         templateUrl: '/templates/modal.html',
         controller: 'ModalCtrl',
@@ -13,13 +16,20 @@
       modalInstance.result.then(function (newRoom) {
         Room.add(newRoom)
       }, function () {
-        $log.info('Modal dismissed at: ' + new Date());
+        // $log.info('Modal dismissed at: ' + new Date());
       });
     }
+      //This will instantiate a new room when activeRoom is clicked
+    home.activeRoom = function(room) {
+      home.currentRoom = room;
+      home.messages = Message.getByRoomId(room.$id);
+      console.log('messages', home.messages);
+    };
 
+    return home;
   }
 
   angular
     .module('chat')
-    .controller('HomeCtrl', ['Room', '$uibModal', HomeCtrl]);
+    .controller('HomeCtrl', ['Room', 'Message', '$uibModal', HomeCtrl]);
 })();

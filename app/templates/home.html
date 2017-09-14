@@ -1,11 +1,71 @@
-<h1> Chat <h1>
-<section class="sidebar">
+<div class="container">
+  <div class="chat_sidebar" class="btn-group-vertical" class="pull-left">
+    <div class="row">
+
+
+          <h1> Chat </h1>
+        <section class="sidebar">
+          <hr style="width: 100%; background-color: black; height: 1px; border-color : transparent;" />
+
+
+            <!--Add new rooms button-->
+              <p><button type="button" ng-click="home.open()">Click for New Room</button></p>
+              </br>
 
 
 
-  <button type="button" ng-click="home.open()"></button>
-  <div ng-repeat="room in home.rooms track by $index"> <!--.HomeCtrla-->
-    {{ room.$value }}
+            <!--Click on room-->
+            <div  ng-repeat="room in home.rooms track by $index">
+              <button type="button" class="btn btn-dark" class="btn-group btn-group" ng-click="home.activeRoom(room)">{{ room.$value }}</button>
+            </div>
+      </section>
 
+
+        <!--Messages-->
+      <section>
+    <div class="row">
+
+
+      <div class="col-md-10">
+
+
+      <table class="table table-striped">
+      <tbody ng-repeat="message in home.messages">
+        <tr >
+          <th scope="row">{{ home.currentRoom.$value }}</th>
+          <td>{{ message.username }}</td>
+          <td>{{ message.message }}</td>
+        </tr>
+        <tr >
+          <th scope="row 2">{{ home.currentRoom.$value }}</th>
+          <td>{{ message.username }}</td>
+          <td>{{ message.message }}</td>
+        </tr>
+        <!-- <tr>
+          <th scope="row">3</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>  -->
+      </tbody>
+
+
+
+            <!-- <div ng-repeat="message in home.messages">
+              <p>{{ message.username }}</p>
+              <p>{{ message.message }}</p>
+              </div> -->
+
+
+          </section>
+        </table>
+
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
 
 </div>
