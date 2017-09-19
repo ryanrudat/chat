@@ -1,17 +1,16 @@
 
 (function () {
-  function CookiesCtrl($uibModal, $cookies) {
-    this.cancel = function() {
-      uibModalInstance.dimiss('dismiss')
-    }
+  function CookiesCtrl(Room, $uibModalInstance, $cookies) {
 
-    this.addNew = function(model) {
-      $uibModalInstance.close(model);
+    this.newUserName = function() {
+      $cookies.put('blocChatCurrentUser', this.username)
+      $uibModalInstance.close();
+      console.log(this.username)
   }
-}
+};
 
 
   angular
   .module('chat')
-  .controller('CookiesCtrl', ['$uibModal', '$cookies', CookiesCtrl])
+  .controller('CookiesCtrl', ['Room', '$uibModalInstance', '$cookies', CookiesCtrl])
 })();

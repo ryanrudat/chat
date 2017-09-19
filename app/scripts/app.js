@@ -13,10 +13,12 @@
                  templateUrl: '/templates/home.html',
                })
                .state('modal', {
-                 url:'/controllers',
+                 url: '/controllers',
                  controller: 'ModalCtrl as modal',
                  templateUrl: '/templates/modal.html'
               
+
+
 
                });
     }

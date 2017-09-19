@@ -15,7 +15,6 @@
   };
 
 
-
   angular
   .module('chat')
   .controller('ModalCtrl',['Room', '$uibModalInstance', ModalCtrl]);
