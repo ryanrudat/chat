@@ -16,10 +16,12 @@
                  url:'/controllers',
                  controller: 'ModalCtrl as modal',
                  templateUrl: '/templates/modal.html'
+              
+
                });
     }
 
   angular
-    .module('chat', ['ui.router', 'firebase', 'ui.bootstrap'])
+    .module('chat', ['ui.router', 'firebase', 'ui.bootstrap', 'ngCookies' ])
     .config(config);
 })();
