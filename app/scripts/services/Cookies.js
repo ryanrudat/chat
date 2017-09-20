@@ -9,18 +9,16 @@
 
       //opens modal with defined info. Keyboard value disables Esc key. Backdrop value stops from clicking off the modal.
       $uibModal.open({
-        templateUrl: '/templates/cookies.html',
+        templateUrl: '/templates/Cookies.html',
       //CookieCtrl is where we will store entered username
-        controller: 'CookiesCtrl as cookies',
-        size: 'md',
+        controller: 'CookiesCtrl',
+        controllerAs: 'cookies',
+        size: 'sm',
         keyboard: false,
         backdrop: 'static'
         });
       }
     }
-      // result.then(function (results) {
-      //   $cookies.put('blocChatCurrentUser', results);
-      //   console.log(results);
 
 
   angular

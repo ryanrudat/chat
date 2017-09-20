@@ -12,16 +12,10 @@
                  controller: 'HomeCtrl as home',
                  templateUrl: '/templates/home.html',
                })
-               .state('modal', {
-                 url:'/controllers',
-                 controller: 'ModalCtrl as modal',
-                 templateUrl: '/templates/modal.html'
-              
-
-               });
+               
     }
 
   angular
-    .module('chat', ['ui.router', 'firebase', 'ui.bootstrap', 'ngCookies' ])
+    .module('chat', ['ui.router', 'firebase', 'ui.bootstrap', 'ngCookies'])
     .config(config);
 })();
