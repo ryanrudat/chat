@@ -1,71 +1,53 @@
 <div class="container">
-  <div class="chat_sidebar" class="btn-group-vertical" class="pull-left">
-    <div class="row">
+  <div class="row">
+    <div class="col-md-2">
+
+      <!-- <div class="btn-group-vertical" > -->
+      <h1> Chat </h1>
+      <!-- <section class="sidebar" class="chat_sidebar" class="pull-left"> -->
+      <hr style="width: 100%; background-color: black; height: 1px; border-color : transparent;" /> <!--Creates lag when loading  -->
 
 
-          <h1> Chat </h1>
-        <section class="sidebar">
-          <hr style="width: 100%; background-color: black; height: 1px; border-color : transparent;" />
-
-
-            <!--Add new rooms button-->
-              <p><button type="button" ng-click="home.open()">Click for New Room</button></p>
-              </br>
-
-
-
-            <!--Click on room-->
-            <div  ng-repeat="room in home.rooms track by $index">
-              <button type="button" class="btn btn-dark" class="btn-group btn-group" ng-click="home.activeRoom(room)">{{ room.$value }}</button>
-            </div>
-      </section>
-
-
-        <!--Messages-->
-      <section>
-    <div class="row">
-
-
-      <div class="col-md-10">
-
-
-      <table class="table table-striped">
-      <tbody ng-repeat="message in home.messages">
-        <tr >
-          <th scope="row">{{ home.currentRoom.$value }}</th>
-          <td>{{ message.username }}</td>
-          <td>{{ message.message }}</td>
-        </tr>
-        <tr >
-          <th scope="row 2">{{ home.currentRoom.$value }}</th>
-          <td>{{ message.username }}</td>
-          <td>{{ message.message }}</td>
-        </tr>
-        <!-- <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-        </tr>  -->
-      </tbody>
+      <!--Add new rooms button-->
+      <p><button type="button" ng-click="home.open()">Click for New Room</button></p>
+      </br>
 
 
 
-            <!-- <div ng-repeat="message in home.messages">
-              <p>{{ message.username }}</p>
-              <p>{{ message.message }}</p>
-              </div> -->
-
-
-          </section>
-        </table>
-
-
-
+      <!--Click on room-->
+      <div ng-repeat="room in home.rooms track by $index">
+        <button type="button" class="btn btn-dark" class="btn-group btn-group" ng-click="home.activeRoom(room)">{{ room.$value }}</button>
       </div>
     </div>
 
+    <!--Message Window-->
+    <div class="col-md-10">
+      <h2>{{ home.currentRoom.$value }}</h2>
+      <table class="table table-striped">
+        <tbody >
+          <tr ng-repeat="message in home.messages">
+            <td class="username">{{ message.username }}</td>
+            <td class="user-message">{{ message.message }}</td>
+            <td class="timestamp">{{message.sentAt | date : "shortTime"}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
 
+  <hr/>
+    <!--messages-->
+  <footer>
+    <button type="button" ng-click="isCollapsed = !isCollapsed">Open Message </button>
+  	<div uib-collapse="!isCollapsed">
+      <div class="col-lg-6">
+        <div class="input-group">
+          <input type="text" class="form-control" ng-model="home.newMessage.message" placeholder="Message" aria-label="Message">
+          <span class="input-group-btn">
+            <button class="btn btn-secondary" type="button" ng-click="home.send()">Submit</button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
 </div>

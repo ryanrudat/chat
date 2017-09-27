@@ -1,10 +1,13 @@
 (function(){
-  function HomeCtrl(Room, Message, $uibModal) {
+  function HomeCtrl(Room, Message, $uibModal, $cookies) {
+
+
     var home = this;
 
     home.rooms = Room.all;
     home.currentRoom = null;
     home.messages = null;
+    home.newMessage = {};
 
     home.open = function() {
       var modalInstance = $uibModal.open({
@@ -23,13 +26,20 @@
     home.activeRoom = function(room) {
       home.currentRoom = room;
       home.messages = Message.getByRoomId(room.$id);
-      console.log('messages', home.messages);
-    };
+      //console.log('messages', home.messages);
+    }
+
+    home.send = function() {
+      home.newMessage.roomId = home.currentRoom.$id;
+      home.newMessage.username = $cookies.get('blocChatCurrentUser');
+
+      Message.send(home.newMessage);
+    }
 
     return home;
   }
 
   angular
     .module('chat')
-    .controller('HomeCtrl', ['Room', 'Message', '$uibModal', HomeCtrl]);
+    .controller('HomeCtrl', ['Room', 'Message', '$uibModal', '$cookies', HomeCtrl]);
 })();
