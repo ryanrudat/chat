@@ -34,6 +34,7 @@
       home.newMessage.username = $cookies.get('blocChatCurrentUser');
 
       Message.send(home.newMessage);
+    
     }
 
     return home;

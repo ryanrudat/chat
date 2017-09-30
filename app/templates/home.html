@@ -44,7 +44,9 @@
         <div class="input-group">
           <input type="text" class="form-control" ng-model="home.newMessage.message" placeholder="Message" aria-label="Message">
           <span class="input-group-btn">
+
             <button class="btn btn-secondary" type="button" ng-click="home.send()">Submit</button>
+            <input class="enter" ng-keyup="$event.keyCode == 13 && home.send()"><input>
           </span>
         </div>
       </div>

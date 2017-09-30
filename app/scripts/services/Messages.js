@@ -19,6 +19,7 @@
       console.log(newMessage)
       messages.$add(newMessage);
 
+      newMessage.message = "";
     }
     return Message;
   }
